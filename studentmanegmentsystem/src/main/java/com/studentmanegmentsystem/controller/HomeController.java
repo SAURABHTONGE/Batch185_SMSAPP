@@ -15,7 +15,7 @@ import com.studentmanegmentsystem.servicei.ServiceI;
 @Controller
 public class HomeController {
 
-	
+	int i;
 	@Autowired
 	ServiceI si;
 	

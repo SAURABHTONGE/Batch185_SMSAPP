@@ -15,7 +15,7 @@ import com.studentmanegmentsystem.servicei.ServiceI;
 @Controller
 public class HomeController {
 
-	int a;
+	
 	@Autowired
 	ServiceI si;
 	
@@ -39,4 +39,29 @@ public class HomeController {
 		return "login";
 		
 	}
+	@RequestMapping("/search")
+	public String getBatchStudent(@RequestParam String batchNumber,Model m) {
+		List<Student> result = si.searchStudentByBatch(batchNumber);
+		if(result.size()>0) {
+			m.addAttribute("data", result);
+		}else {
+			List<Student> student = si.getAllStudent();
+			m.addAttribute("data", student);
+			m.addAttribute("message","No record are availabe for the Batch '" + batchNumber + "'...!");
+		}
+		return "adminscreen";
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

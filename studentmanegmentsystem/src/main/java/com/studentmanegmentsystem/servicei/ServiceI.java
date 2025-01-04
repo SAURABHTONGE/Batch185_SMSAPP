@@ -8,4 +8,6 @@ public interface ServiceI {
 
 	public List<Student> getAllStudent();
 	public List<Student> addStudent(Student s);
+	
+	public List<Student> searchStudentByBatch(String batchNumber);
 }

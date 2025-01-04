@@ -27,4 +27,10 @@ public class ServiceImpl  implements ServiceI{
 		return ri.findAll();
 	}
 
+	@Override
+	public List<Student> searchStudentByBatch(String batchNumber) {
+		List<Student> batchStudent = ri.findAllByBatchNumber(batchNumber);
+		return batchStudent;
+	}
+
 }

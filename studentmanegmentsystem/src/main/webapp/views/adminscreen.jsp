@@ -45,6 +45,10 @@ form {
 		document.fn.action = "remove";
 		document.fn.submit();
 	}
+	function batch(){
+		document.fn.action="batch";
+		document.fn.submit();
+	}
 </script>
 </head>
 <body>

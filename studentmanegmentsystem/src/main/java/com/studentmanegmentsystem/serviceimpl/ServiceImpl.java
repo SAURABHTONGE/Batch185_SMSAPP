@@ -69,4 +69,19 @@ public class ServiceImpl  implements ServiceI{
 		return list;
 	}
 
+	@Override
+	public List<Student> updateBatch(int id,String b) {
+		
+		Optional<Student> optional = ri.findById(id);
+		if(optional.isPresent()) {
+			 Student s = optional.get();
+			s.setBatchMode(b);
+			ri.save(s);
+			
+		}
+		return ri.findAll();
+		
+	}
+
+	
 }

@@ -79,9 +79,19 @@ public class HomeController {
 			m.addAttribute("data",list);
 			return "adminscreen";
 	}
-	
-	
-	
+	@RequestMapping("/batch")
+	public String batch(@RequestParam ("id") int id,Model m) {
+		Student student = si.getStudent(id);
+		m.addAttribute("st", student);
+		return "batch";
+	}
+	@RequestMapping("/updatebatch")
+	public String updateBatch(@RequestParam ("studentid")int id,@RequestParam("batchMode") String b,Model m) {
+		List<Student> list=si.updateBatch(id,b);
+		m.addAttribute("data",list);
+		return "adminscreen";
+		
+	}
 	
 	
 	

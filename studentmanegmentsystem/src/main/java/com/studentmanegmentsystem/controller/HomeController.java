@@ -52,10 +52,33 @@ public class HomeController {
 		return "adminscreen";
 		
 	}
+	@RequestMapping("/fees")
+	public String onfees(@RequestParam ("id") int id,Model m) {
+		Student s=si.getStudent(id);
+		m.addAttribute("st",s);
+		return "fees";
+	}
+	@RequestMapping("/payfees")
+	public String payfees(@RequestParam ("studentid")int id,@RequestParam("ammount") float amt,Model m) {
+		
+		List<Student> list=si.updateStudentFees(id,amt);
+		m.addAttribute("data",list);
+		return "adminscreen";
+		}
+	@RequestMapping("/remove")
+	public String remove(@RequestParam ("id") int id,Model m) {
 	
-	
-	
-	
+		si.removeStudent(id);
+	  List<Student> list=si.getAllStudent();
+		m.addAttribute("data",list);
+		return "adminscreen";
+	}
+	@RequestMapping("/paging")
+	public String paging(@RequestParam("pageNo") int pageNo,Model m) {
+		 List<Student> list=si.paging(pageNo,2);
+			m.addAttribute("data",list);
+			return "adminscreen";
+	}
 	
 	
 	
